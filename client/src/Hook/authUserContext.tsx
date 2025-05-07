@@ -38,7 +38,7 @@ interface AuthContextType {
     isLoggedIn: boolean;
     setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
     saveUser: (user: User) => void;
-    clearUser: () => void;
+    logout: () => void;
 }
 
 // יצירת הקונטקסט עם הטיפוס הנכון
@@ -61,7 +61,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
         return localStorage.getItem("user") !== null;
     });
-    
 
     // פונקציה לשמירת המשתמש
     const saveUser = (user: User) => {
@@ -72,7 +71,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     };
 
     // פונקציה להתנתקות (ניקוי המשתמש)
-    const clearUser = () => {
+    const logout = () => {
         localStorage.removeItem("user");
         localStorage.removeItem("isLoggedIn");
         setUser(null);
@@ -80,7 +79,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, isLoggedIn, setIsLoggedIn, saveUser, clearUser }}>
+        <AuthContext.Provider value={{ user, isLoggedIn, setIsLoggedIn, saveUser, logout }}>
             {children}
         </AuthContext.Provider>
     );
