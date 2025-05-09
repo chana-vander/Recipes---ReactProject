@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { useAuth } from "../Hook/authUserContext"
@@ -33,6 +31,7 @@ const Header = () => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const saveUser = useAuth();
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
@@ -52,11 +51,17 @@ const Header = () => {
     <AppBar position="sticky" sx={{ bgcolor: "white", boxShadow: "0 2px 10px rgba(0,0,0,0.1)", width: "100%" }}>
       <Toolbar sx={{ justifyContent: "space-between", py: 1, direction: "rtl", width: "90%", px: { xs: 2, md: 4 } }}>
         {/* Logo */}
-        <Box sx={{ display: "flex", alignItems: "center", cursor: "pointer" }} onClick={() => navigate("/recipes")}>
+        <Box sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+          onClick={() => {
+            if (saveUser.isLoggedIn)
+              navigate("/recipes")
+            else
+              alert("עליך להתחבר כדי לגשת למתכונים")
+          }}>
           <RestaurantIcon sx={{ color: "#d81b60", fontSize: 32, mr: 1 }} />
           <Typography variant="h5" sx={{ fontWeight: "bold", color: "#d81b60", display: { xs: "none", sm: "block" } }}>
             Yami
-             {/* - לחץ למתכונים */}
+            {/* - לחץ למתכונים */}
           </Typography>
         </Box>
 
