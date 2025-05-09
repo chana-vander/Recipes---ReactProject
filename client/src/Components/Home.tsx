@@ -2,18 +2,18 @@
 //למורה היקרה תודה רבה על הכל
 //אשמח שהמורה תתחשב אם יהיה צורך
 //השרת היה מבלבל מאד וגם לי המון זמן להבין ולהצליח ולסנכרן דברים
-import { useNavigate } from "react-router-dom"
-import { Container, Typography, Button, Grid, Box, Paper, useTheme, alpha, Card, CardMedia, Stack } from "@mui/material"
-import SearchIcon from "@mui/icons-material/Search"
-import FavoriteIcon from "@mui/icons-material/Favorite"
-import StarIcon from "@mui/icons-material/Star"
-import LocalDiningIcon from "@mui/icons-material/LocalDining"
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
-import { useAuth } from "../Hook/authUserContext"
+import { useNavigate } from "react-router-dom";
+import { Container, Typography, Button, Grid, Box, Paper, alpha, Card, CardMedia, Stack } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import StarIcon from "@mui/icons-material/Star";
+import LocalDiningIcon from "@mui/icons-material/LocalDining";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useAuth } from "../Hook/authUserContext";
 
 const Home = () => {
-  const navigate = useNavigate()
-  const saveUser=useAuth();
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
 
   // מאפיינים של האתר
   const features = [
@@ -37,7 +37,25 @@ const Home = () => {
       title: "שיתוף מתכונים",
       description: "שתף את המתכונים המיוחדים שלך עם קהילת הבישול שלנו",
     },
-  ]
+  ];
+
+  const handleNavigateToRecipes = () => {
+    if (isLoggedIn) {
+      navigate("/recipes");
+    } else {
+      alert("עליך להתחבר כדי לגשת למתכונים");
+      // אפשרות לנתב לדף התחברות: navigate("/login");
+    }
+  };
+
+  const handleNavigateToAddRecipe = () => {
+    if (isLoggedIn) {
+      navigate("/addRecipe");
+    } else {
+      alert("עליך להתחבר כדי להוסיף מתכון");
+      // אפשרות לנתב לדף התחברות: navigate("/login");
+    }
+  };
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -117,12 +135,7 @@ const Home = () => {
                 <Button
                   variant="contained"
                   size="large"
-                  onClick={() => {
-                    if (saveUser.isLoggedIn)
-                      navigate("/recipes")
-                    else
-                      alert("עליך להתחבר כדי לגשת למתכונים")
-                  }}
+                  onClick={handleNavigateToRecipes}
                   sx={{
                     bgcolor: "#d81b60",
                     color: "white",
@@ -141,7 +154,7 @@ const Home = () => {
                 <Button
                   variant="outlined"
                   size="large"
-                  onClick={() => navigate("/addRecipe")}
+                  onClick={handleNavigateToAddRecipe}
                   sx={{
                     borderColor: "white",
                     color: "white",
@@ -269,7 +282,7 @@ const Home = () => {
                     position: "relative",
                     cursor: "pointer",
                   }}
-                  onClick={() => navigate("/recipes")}
+                  onClick={handleNavigateToRecipes}
                 >
                   <Box
                     sx={{
@@ -318,7 +331,7 @@ const Home = () => {
               variant="outlined"
               size="large"
               endIcon={<ArrowForwardIcon />}
-              onClick={() => navigate("/recipes")}
+              onClick={handleNavigateToRecipes}
               sx={{
                 borderColor: "#d81b60",
                 color: "#d81b60",
@@ -345,11 +358,9 @@ const Home = () => {
           position: "relative",
           overflow: "hidden",
         }}
-      >
-      
-      </Box>
+      ></Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -60,8 +60,6 @@ const Recipes = () => {
       try {
         const response = await axios.get("http://localhost:8080/api/recipe")
         setRecipes(response.data)
-        console.log("dddddddd: ",response.data);
-        
       } catch (error) {
         console.error("Error fetching recipes:", error)
       }
