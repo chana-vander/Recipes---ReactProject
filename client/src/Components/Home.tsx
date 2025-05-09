@@ -2,6 +2,7 @@
 //למורה היקרה תודה רבה על הכל
 //אשמח שהמורה תתחשב אם יהיה צורך
 //השרת היה מבלבל מאד וגם לי המון זמן להבין ולהצליח ולסנכרן דברים
+//הערה: שמות הקבצים בגיט נשארו משום מה באות גדולה בפועל זה השתנה הכל לאות לקטנה
 import { useNavigate } from "react-router-dom";
 import { Container, Typography, Button, Grid, Box, Paper, alpha, Card, CardMedia, Stack } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
