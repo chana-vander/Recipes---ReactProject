@@ -94,7 +94,7 @@ const Home = () => {
           }}
         >
           <img
-            src="/images/hero-food.jpg"
+            src="../Images/home.png"
             alt="מגוון מאכלים טעימים על שולחן"
             style={{
               width: "100%",
@@ -264,10 +264,10 @@ const Home = () => {
 
           <Grid container spacing={3}>
             {[
-              { name: "ארוחות בוקר", image: "/images/breakfast.jpg" },
-              { name: "מנות עיקריות", image: "/images/main-dishes.jpg" },
-              { name: "קינוחים", image: "/images/desserts.jpg" },
-              { name: "מתכונים בריאים", image: "/images/healthy.jpg" },
+              { name: "ארוחות בוקר", image: "../Images/home.png" },
+              { name: "מנות עיקריות", image: "../Images/home.png" },
+              { name: "קינוחים", image: "../Images/home.png" },
+              { name: "מתכונים בריאים", image: "../Images/home.png" },
             ].map((category, index) => (
               <Grid item xs={12} sm={6} md={3} key={index}>
                 <Card
