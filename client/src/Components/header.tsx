@@ -48,10 +48,6 @@ const Header = () => {
     navigate("/home")
   }
 
-  // const isActive = (path: string) => {
-  //   return location.pathname === path
-  // }
-
   return (
     <AppBar position="sticky" sx={{ bgcolor: "white", boxShadow: "0 2px 10px rgba(0,0,0,0.1)", width: "100%" }}>
       <Toolbar sx={{ justifyContent: "space-between", py: 1, direction: "rtl", width: "90%", px: { xs: 2, md: 4 } }}>
@@ -60,6 +56,7 @@ const Header = () => {
           <RestaurantIcon sx={{ color: "#d81b60", fontSize: 32, mr: 1 }} />
           <Typography variant="h5" sx={{ fontWeight: "bold", color: "#d81b60", display: { xs: "none", sm: "block" } }}>
             Yami
+             {/* - לחץ למתכונים */}
           </Typography>
         </Box>
 

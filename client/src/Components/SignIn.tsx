@@ -1,77 +1,12 @@
-// import { useForm } from "react-hook-form";
-// import { useNavigate } from "react-router-dom";
-// import { User } from "../Models/user";
-// import axios from "axios";
-// import { useAuth } from "../Hook/authUserContext";
-// import { useState } from "react";
-
-// const SignIn = () => {
-//   const navigate = useNavigate();
-//   const { saveUser, setIsLoggedIn } = useAuth();
-//   const [msg, setMsg] = useState("");
-//   const { register, handleSubmit, formState: { errors }, setError, reset } = useForm<User>({
-//   });
-//   const onSubmit = async (data: User) => {
-//     try {
-//       const response = await axios.post('http://localhost:8080/api/user/sighin', data);
-//       setMsg("ההרשמה בוצעה בהצלחה! 🎉");
-//       saveUser(response.data); // שמירת המשתמש ב-Contex
-//       setIsLoggedIn(true);
-//       navigate("/");
-//     }
-//     catch (error: any) {
-//       if (error.response?.data?.includes) {
-//         setMsg("😜לחץ כאן לכניסה אתה כבר רשום במאגר");
-//         alert("😜משתמש קיים!! , הנך מועבר לעמוד הבית כדי להתחבר");
-//         navigate("/");
-//       }
-//       else {
-//         setMsg("שגיאה בחיבור לשרת. נסה שוב מאוחר יותר.");
-//       }
-//     }
-//   };
-
-//   return (
-//     <>
-//       <h2>הרשמה</h2>
-//       <form onSubmit={handleSubmit(onSubmit)}>
-//         <input {...register("UserName", { required: "שדה חובה" })} placeholder="שם משתמש" />
-//         <p>{errors.UserName?.message}</p>
-
-//         <input {...register("Password", { required: "שדה חובה" })} type="password" placeholder="סיסמא" />
-//         <p>{errors.Password?.message}</p>
-
-//         <input {...register("Name", { required: "שדה חובה" })} placeholder="שם מלא" />
-//         <p>{errors.Name?.message}</p>
-
-//         <input {...register("Phone", { required: "שדה חובה" })} placeholder="מספר טלפון" />
-//         <p>{errors.Phone?.message}</p>
-
-//         <input {...register("Email", { required: "שדה חובה" })} type="email" placeholder="כתובת מייל" />
-//         <p>{errors.Email?.message}</p>
-
-//         <input {...register("Tz", { required: "שדה חובה" })} placeholder="תעודת זהות" />
-//         <p>{errors.Tz?.message}</p>
-
-//         <button type="submit">להרשמה</button>
-//       </form>
-//     </>
-//   );
-// }
-// export default SignIn;
-
-
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { User } from "../Models/user"; // ודא שהמודל User כולל את כל השדות הנדרשים
 import axios from "axios";
 import { useAuth } from "../Hook/authUserContext";
 import { useState } from "react";
-import { Box, Button, TextField, Typography, Alert, Icon } from "@mui/material";
+import { Box, Button, TextField, Typography, Alert } from "@mui/material";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-// import { Typography } from "@mui/material";
-import LoginIcon from "@mui/icons-material/Login";
 
 // סכמת ולידציה עם Yup
 const schema = yup.object().shape({

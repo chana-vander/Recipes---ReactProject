@@ -32,18 +32,6 @@ const Footer = () => {
           Yami - מתכונים באהבה
         </Typography>
 
-        {/* <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-          <Link href="/about" underline="hover" sx={{ color: "inherit" }}>
-            אודות
-          </Link>
-          <Link href="/contact" underline="hover" sx={{ color: "inherit" }}>
-            צור קשר
-          </Link>
-          <Link href="/terms" underline="hover" sx={{ color: "inherit" }}>
-            תנאי שימוש
-          </Link>
-        </Box> */}
-
         <Box sx={{ display: "flex", gap: 1 }}>
           <IconButton size="small" href="https://github.com" target="_blank">
             <GitHub sx={{ color: "#333" }} />
