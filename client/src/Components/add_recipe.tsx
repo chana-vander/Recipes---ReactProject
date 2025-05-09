@@ -844,7 +844,7 @@ const AddRecipe = () => {
       Difficulty: "",
       Duration: "",
       Description: "",
-      CategoryId: "",
+      CategoryId: 0,
       Img: "",
       Ingridents: [{ Name: "", Count: "", Type: "" }],
     },

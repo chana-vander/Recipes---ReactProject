@@ -31,17 +31,10 @@ const Recipe = sequelize.define('recipe', {
         type: DataTypes.TEXT,
         allowNull: false,
     },
-    // //הוספה שלי:
-    // UserId: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false
-    // },
-    // CategoryId: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false
-    // }
-    
+    CategoryId: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }
 });
-
 
 module.exports = Recipe;

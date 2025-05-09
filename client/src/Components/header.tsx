@@ -48,15 +48,15 @@ const Header = () => {
     navigate("/home")
   }
 
-  const isActive = (path: string) => {
-    return location.pathname === path
-  }
+  // const isActive = (path: string) => {
+  //   return location.pathname === path
+  // }
 
   return (
     <AppBar position="sticky" sx={{ bgcolor: "white", boxShadow: "0 2px 10px rgba(0,0,0,0.1)", width: "100%" }}>
-      <Toolbar sx={{ justifyContent: "space-between", py: 1, direction: "rtl", width: "100%", px: { xs: 2, md: 4 } }}>
+      <Toolbar sx={{ justifyContent: "space-between", py: 1, direction: "rtl", width: "90%", px: { xs: 2, md: 4 } }}>
         {/* Logo */}
-        <Box sx={{ display: "flex", alignItems: "center", cursor: "pointer" }} onClick={() => navigate("/home")}>
+        <Box sx={{ display: "flex", alignItems: "center", cursor: "pointer" }} onClick={() => navigate("/recipes")}>
           <RestaurantIcon sx={{ color: "#d81b60", fontSize: 32, mr: 1 }} />
           <Typography variant="h5" sx={{ fontWeight: "bold", color: "#d81b60", display: { xs: "none", sm: "block" } }}>
             Yami
@@ -101,24 +101,6 @@ const Header = () => {
               </MenuItem>
               {isLoggedIn ? (
                 <>
-                  <MenuItem
-                    onClick={() => {
-                      handleClose()
-                      navigate("/recipes")
-                    }}
-                  >
-                    המתכונים שלי
-                  </MenuItem>
-                  {/* <MenuItem
-                    onClick={() => {
-                      handleClose()
-                      navigate("/addRecipe")
-                    }}
-                  >
-                    <AddIcon fontSize="small" sx={{ ml: 1 }} />
-                    הוסף מתכון
-                  </MenuItem>
-                  <Divider /> */}
                   <MenuItem onClick={handleLogout}>
                     <LogoutIcon fontSize="small" sx={{ ml: 1 }} />
                     התנתק
@@ -148,45 +130,6 @@ const Header = () => {
           </Box>
         ) : (
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            {/* <Button
-              color="inherit"
-              onClick={() => navigate("/home")}
-              sx={{
-                color: isActive("/home") ? "#d81b60" : "text.primary",
-                fontWeight: isActive("/home") ? "bold" : "normal",
-              }}
-            >
-              דף הבית
-            </Button> */}
-{/* 
-            {isLoggedIn && (
-              <>
-                <Button
-                  color="inherit"
-                  onClick={() => navigate("/recipes")}
-                  sx={{
-                    color: isActive("/recipes") ? "#d81b60" : "text.primary",
-                    fontWeight: isActive("/recipes") ? "bold" : "normal",
-                  }}
-                >
-                  המתכונים שלי
-                </Button>
-                <Button
-                  variant="contained"
-                  startIcon={<AddIcon />}
-                  onClick={() => navigate("/addRecipe")}
-                  sx={{
-                    bgcolor: "#d81b60",
-                    "&:hover": { bgcolor: "#c2185b" },
-                    borderRadius: "20px",
-                    px: 2,
-                  }}
-                >
-                  הוסף מתכון
-                </Button>
-              </>
-            )} */}
-
             {isLoggedIn ? (
               <Box sx={{ display: "flex", alignItems: "center", mr: 1 }}>
                 <IconButton onClick={handleMenu} size="small">

@@ -1,9 +1,9 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from './Components/Home';
-import Login from'./Components/Login'
+import Home from './Components/home';
+import Login from'./Components/login'
 import SignIn from './Components/SignIn';
-import Recipes from "./Components/Recipes";
+import Recipes from "./Components/recipes";
 import AddRecipe from './Components/add_recipe';
 import EditRecipe from './Components/edit_recipe';
 import RecipeDetails from './Components/recipe_details';

@@ -29,15 +29,12 @@ const GetRecipe = (req, res) => {
 }
 
 const AddRecipy = (req, res) => {
-    console.log("📦 נתונים שהתקבלו:", req.body);
-    console.log("ccc: ",req.body.CategoryId);
+    console.log("ccc: ",req.CategoryId);
     const {
         Name, UserId, CategoryId, Img, Duration, Difficulty, Description,
         Ingridents, Instructions } = req.body;
-    console.log(req);
     if (!Name || !UserId || !CategoryId || !Img || !Duration || !Difficulty || !Description || !Ingridents || !Instructions) {
         // לא נשלח מידע
-        console.log("on ADDRECIPE ");
         return res.status(400).send('המידע שנשלח לא תקין')
     };
 

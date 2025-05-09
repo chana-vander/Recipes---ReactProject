@@ -14,7 +14,7 @@ const Home = () => {
       <Box
         sx={{
           background: `linear-gradient(135deg, ${alpha("#ffebee", 0.8)} 0%, ${alpha("#f8bbd0", 0.8)} 100%)`,
-          minHeight: "calc(100vh - 64px)",
+          minHeight: "calc(100vh)",
           py: 8,
         }}
       >

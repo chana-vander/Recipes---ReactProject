@@ -45,7 +45,6 @@ import {
   Download as DownloadIcon,
   Close as CloseIcon,
 } from "@mui/icons-material"
-import Header from "./header"
 import html2canvas from "html2canvas"
 import jsPDF from "jspdf"
 
@@ -152,7 +151,6 @@ const RecipeDetails = () => {
   if (loading) {
     return (
       <>
-        <Header />
         <Container sx={{ py: 8, textAlign: "center" }}>
           <Typography>טוען מתכון...</Typography>
         </Container>
@@ -163,7 +161,6 @@ const RecipeDetails = () => {
   if (!recipe) {
     return (
       <>
-        <Header />
         <Container sx={{ py: 8, textAlign: "center" }}>
           <Typography variant="h5">המתכון לא נמצא</Typography>
           <Button startIcon={<ArrowBackIcon />} onClick={() => navigate("/recipes")} sx={{ mt: 2 }}>
@@ -176,7 +173,6 @@ const RecipeDetails = () => {
 
   return (
     <>
-      <Header />
       <Box
         sx={{
           minHeight: "calc(100vh - 64px)",
