@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './Components/home';
 import Login from'./Components/login'
-import SignIn from './Components/SignIn';
+import SignIn from './Components/signIn';
 import Recipes from "./Components/recipes";
 import AddRecipe from './Components/add_recipe';
 import EditRecipe from './Components/edit_recipe';
