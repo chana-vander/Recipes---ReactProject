@@ -1,6 +1,6 @@
 import { AppBar } from "@mui/material";
-import Header from "./header";
-import Footer from "./footer"
+import Header from "./Header";
+import Footer from "./Footer"
 import { Outlet } from "react-router-dom";
 
 const Layout = () => {

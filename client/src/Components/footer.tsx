@@ -46,7 +46,7 @@ const Footer = () => {
       </Box>
 
       <Typography variant="caption" sx={{ display: "block", mt: 2, color: "#888" }}>
-        © {new Date().getFullYear()} כל הזכויות שמורות ל־Yami
+        © {new Date().getFullYear()} כל הזכויות שמורות ל Yami-מס' 0533189408
       </Typography>
     </Box>
   )
